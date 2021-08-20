@@ -5,6 +5,7 @@ class ResponsiveScaffold extends StatelessWidget {
     Key? key,
     this.scaffoldKey,
     this.drawer,
+    this.drawerWidth = 304.0,
     this.endDrawer,
     this.appBar,
     this.body,
@@ -32,7 +33,7 @@ class ResponsiveScaffold extends StatelessWidget {
 
   final double kTabletBreakpoint;
   final double kDesktopBreakpoint;
-  double get _drawerWidth => 304.0;
+  final double drawerWidth;
 
   final IconData? menuIcon, endIcon;
 
@@ -50,7 +51,7 @@ class ResponsiveScaffold extends StatelessWidget {
                   children: <Widget>[
                     if (drawer != null) ...[
                       SizedBox(
-                        width: _drawerWidth,
+                        width: drawerWidth,
                         child: Drawer(
                           child: SafeArea(
                             child: drawer!,
@@ -69,7 +70,7 @@ class ResponsiveScaffold extends StatelessWidget {
                             ),
                             if (endDrawer != null) ...[
                               SizedBox(
-                                width: _drawerWidth,
+                                width: drawerWidth,
                                 child: Drawer(
                                   elevation: 3.0,
                                   child: SafeArea(
@@ -87,7 +88,7 @@ class ResponsiveScaffold extends StatelessWidget {
                 if (floatingActionButton != null) ...[
                   Positioned(
                     top: 100.0,
-                    left: _drawerWidth - 30,
+                    left: drawerWidth - 30,
                     child: floatingActionButton!,
                   )
                 ],
@@ -128,7 +129,7 @@ class ResponsiveScaffold extends StatelessWidget {
                       ),
                       if (endDrawer != null) ...[
                         SizedBox(
-                          width: _drawerWidth,
+                          width: drawerWidth,
                           child: Drawer(
                             elevation: 3.0,
                             child: SafeArea(
